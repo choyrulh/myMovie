@@ -14,8 +14,8 @@ function TopRatedTV() {
       getTopRatedTV();
     }
   }, []);
-  const getTopRatedTV = () => {
-    Api.getTopRatedTV.then((resp) => {
+  const getTopRatedTV = async () => {
+    await Api.getTopRatedTV.then((resp) => {
       setTopRatedTV(resp.data.results);
       // Simpan data ke dalam local storage
       localStorage.setItem("topRatedTV", JSON.stringify(resp.data.results));

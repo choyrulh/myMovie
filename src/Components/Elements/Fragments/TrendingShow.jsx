@@ -15,8 +15,8 @@ function TrendingShow() {
     }
   }, []);
 
-  const getTrendingShow = () => {
-    Api.getTrendingShow.then((resp) => {
+  const getTrendingShow = async () => {
+    await Api.getTrendingShow.then((resp) => {
       setTrendingShow(resp.data.results);
       // Simpan data ke dalam local storage
       localStorage.setItem("trendingShow", JSON.stringify(resp.data.results));

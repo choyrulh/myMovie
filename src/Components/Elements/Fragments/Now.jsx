@@ -13,8 +13,8 @@ function Now() {
       getNowPlaying();
     }
   }, []);
-  const getNowPlaying = () => {
-    Api.getNowPlaying.then((resp) => {
+  const getNowPlaying = async () => {
+    await Api.getNowPlaying.then((resp) => {
       setNowPlaying(resp.data.results);
       // Simpan data ke dalam local storage
       localStorage.setItem("nowPlaying", JSON.stringify(resp.data.results));

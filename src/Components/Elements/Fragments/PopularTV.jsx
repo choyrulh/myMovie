@@ -14,8 +14,8 @@ function PopularTV() {
       getPopularTV();
     }
   }, []);
-  const getPopularTV = () => {
-    Api.getPopularTV.then((resp) => {
+  const getPopularTV = async () => {
+    await Api.getPopularTV.then((resp) => {
       setPopularTV(resp.data.results);
       // Simpan data ke dalam local storage
       localStorage.setItem("popularTV", JSON.stringify(resp.data.results));

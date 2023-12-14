@@ -6,9 +6,14 @@ export function Banner({ label }) {
     <Carousel
       showThumbs={false}
       autoPlay={true}
-      transitionTime={2}
+      transitionTime={1000}
       infiniteLoop={true}
       showStatus={false}
+      interval={3000}
+      onClickItem={() => {
+        console.log("clicked");
+      }}
+      className="cursor-pointer"
     >
       {label.map((item, index) => (
         <div

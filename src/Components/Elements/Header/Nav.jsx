@@ -1,36 +1,72 @@
 import logo from "../../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import Headroom from "react-headroom";
 import { SearchBar } from "./SearchBar";
 
 const Nav = () => {
+  const handleClickWindow = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <Headroom>
       <header className="bg-gradient-to-t from-transparent to-[#222222] p-0 top-0 left-0 z-10 w-full flex items-center justify-between">
-        <img
-          src={logo}
-          width={40}
-          height={40}
-          className="p-1 items-center justify-center ml-3"
-        />
+        <Link to="/" onClick={handleClickWindow}>
+          <img
+            src={logo}
+            width={40}
+            height={40}
+            className="p-1 items-center justify-center ml-3"
+          />
+        </Link>
         <nav className="flex items-center p-1 gap-3 font-custom">
           <ul className=" flex gap-5">
-            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+            <NavLink
+              to="/"
+              onClick={handleClickWindow}
+              className={({ isActive }) =>
+                isActive ? "text-cyan-500" : undefined
+              }
+              end
+            >
               <li>Home</li>
-            </Link>
-            <Link to="/Show" onClick={() => window.scrollTo(0, 0)}>
+            </NavLink>
+            <NavLink
+              to="/Show"
+              onClick={handleClickWindow}
+              className={({ isActive }) =>
+                isActive ? "text-cyan-500" : undefined
+              }
+            >
               <li>TV Show</li>
-            </Link>
-            <Link to="/Coming" onClick={() => window.scrollTo(0, 0)}>
+            </NavLink>
+            <NavLink
+              to="/Coming"
+              onClick={handleClickWindow}
+              className={({ isActive }) =>
+                isActive ? "text-cyan-500" : undefined
+              }
+            >
               <li>Upcoming</li>
-            </Link>
-            <Link to="/About" onClick={() => window.scrollTo(0, 0)}>
+            </NavLink>
+            <NavLink
+              to="/About"
+              onClick={handleClickWindow}
+              className={({ isActive }) =>
+                isActive ? "text-cyan-500" : undefined
+              }
+            >
               <li>About Us</li>
-            </Link>
-            <Link to="/Contact" onClick={() => window.scrollTo(0, 0)}>
+            </NavLink>
+            <NavLink
+              to="/Contact"
+              onClick={handleClickWindow}
+              className={({ isActive }) =>
+                isActive ? "text-cyan-500" : undefined
+              }
+            >
               <li>Contact</li>
-            </Link>
+            </NavLink>
           </ul>
         </nav>
         <div className=" flex flex-row gap-3 mr-7 items-center">

@@ -3,7 +3,6 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { useState } from "react";
 import { getSearch } from "../../../Service/Api";
 import { useEffect } from "react";
-import Card from "../../Container/Card";
 
 export function SearchBar() {
   const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
@@ -36,21 +35,18 @@ export function SearchBar() {
   }, [searchQuery]); // Bergantung pada perubahan searchQuery
 
   return (
-    <div className="m- px-30 flex rounded-full bg-[#333333] shadow-2xl shadow-white mt-1  ">
-      <HiOutlineMagnifyingGlass className="text-lg ml-1 mt-1" />
+    <div className="px-30 flex rounded-full bg-transparent border border-gray-300 shadow-inner  shadow-gray-200 mt-1 animate-pulse">
+      <HiOutlineMagnifyingGlass className="text-lg ml-2 mt-1 text-gray-500" />
       <input
         type="text"
-        placeholder="Cari "
+        placeholder="Cari..."
         id="name"
         name="name"
         autoComplete="name"
         onChange={handleSearch}
         value={searchQuery}
-        className="bg-transparent px-2 w-full outline-none"
+        className="bg-transparent px-2 w-full outline-none text-white"
       />
-      {searchResults.length > 0 && <Card label={searchResults} />}
     </div>
   );
 }
-
-export default SearchBar;

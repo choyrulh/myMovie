@@ -53,6 +53,29 @@ const getTopRatedTV = axiosCreate.get(
 //detail movie
 // const getDetailMovie = axiosCreate.get(`/movie/${movie_id}?api_key=` + api_key);
 
+// search by genre
+const getSearchByGenre = async (genre_id) => {
+  const response = await axiosCreate.get(
+    `/discover/movie?api_key=${api_key}&with_genres=${genre_id}`
+  );
+  return response.data;
+};
+
+// const getGenreNames = async (genreIds) => {
+//   try {
+//     const response = await axiosCreate.get("/genre/movie/list");
+//     const genres = response.data.genres;
+
+//     return genreIds
+//       .map((genreId) => genres.find((genre) => genre.id === genreId)?.name)
+//       .filter(Boolean)
+//       .join(", ");
+//   } catch (error) {
+//     console.error("Error fetching genres:", error);
+//     return "";
+//   }
+// };
+
 export default {
   getNowPlaying,
   getGenres,
@@ -65,4 +88,6 @@ export default {
   getPopularTV,
   getTopRatedTV,
   // getDetailMovie,
+  getSearchByGenre,
+  // getGenreNames,
 };
