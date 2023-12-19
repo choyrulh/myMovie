@@ -1,6 +1,6 @@
 import Genre from "../Dropdowns/Genre";
 
-const SearchFilter = () => {
+const SearchByGenre = () => {
   return (
     <div className="px-3 mx-4 mt-5 flex justify-between">
       <Genre />
@@ -8,4 +8,4 @@ const SearchFilter = () => {
   );
 };
 
-export default SearchFilter;
+export default SearchByGenre;

@@ -1,7 +1,7 @@
 const AllCard = ({ label }) => {
   return (
     // wrapped component here
-    <div className="h-[250px] w-[100%} flex flex-wrap gap-2 justify-evenly ">
+    <div className="h-[250px] w-[100%} flex flex-wrap gap-3 items-start mt-5 ">
       {label.map((item, index) => (
         <div
           key={index}
