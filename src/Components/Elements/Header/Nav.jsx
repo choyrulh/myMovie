@@ -3,13 +3,26 @@ import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import Headroom from "react-headroom";
 import { SearchBar } from "./SearchBar";
+import { useContext } from "react";
+import { GenreFilter } from "../../../Context/GenreFilterContext";
 
 const Nav = () => {
+  const setSearchQueryActive = useContext(SearchBar);
+  const setSearchGenresActive = useContext(GenreFilter);
   const handleClickWindow = () => {
+    setSearchQueryActive(false);
+    setSearchGenresActive(false);
     window.scrollTo(0, 0);
   };
   return (
-    <Headroom>
+    <Headroom
+      style={{
+        webkitTransition: "all .5s ease-in-out",
+        mozTransition: "all .5s ease-in-out",
+        oTransition: "all .5s ease-in-out",
+        transition: "all .5s ease-in-out",
+      }}
+    >
       <header className="bg-gradient-to-t from-transparent to-[#222222] p-0 top-0 left-0 z-10 w-full flex items-center justify-between">
         <Link to="/" onClick={handleClickWindow}>
           <img

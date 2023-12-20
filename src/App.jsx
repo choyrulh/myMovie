@@ -3,9 +3,10 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Components/Elements/Header/Header";
-import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import Loader from "./Pages/Loader";
 import SearchFilterProvider from "./Context/FilterContext";
+import GenreFilterProvider from "./Context/GenreFilterContext";
 // import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
@@ -20,17 +21,19 @@ function App() {
     <>
       <BrowserRouter>
         <SearchFilterProvider>
-          <Suspense fallback={<Loader />}>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/show" element={<Show />} />
-              <Route path="/coming" element={<Coming />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
-          </Suspense>
+          <GenreFilterProvider>
+            <Suspense fallback={<Loader />}>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/show" element={<Show />} />
+                <Route path="/coming" element={<Coming />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </Suspense>
+          </GenreFilterProvider>
         </SearchFilterProvider>
       </BrowserRouter>
     </>

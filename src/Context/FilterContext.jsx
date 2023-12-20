@@ -2,16 +2,15 @@
 import { createContext, useEffect, useState } from "react";
 import { getSearch } from "../Service/Api";
 
-const SearchFilterContext = createContext({
-  searchResults: [],
-});
+const SearchFilterContext = createContext();
 
 const SearchFilterProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
   const [searchResults, setSearchResults] = useState([]); // State untuk hasil pencarian
-
+  const [searchQueryActive, setSearchQueryActive] = useState(false);
   const handleSearch = (event) => {
     setSearchQuery(event.target.value); // Mengupdate query pencarian saat input berubah
+    setSearchQueryActive(true);
   };
 
   useEffect(() => {
@@ -39,7 +38,13 @@ const SearchFilterProvider = ({ children }) => {
 
   return (
     <SearchFilterContext.Provider
-      value={{ handleSearch, searchQuery, searchResults }}
+      value={{
+        handleSearch,
+        searchQuery,
+        searchResults,
+        searchQueryActive,
+        setSearchQueryActive,
+      }}
     >
       {children}
     </SearchFilterContext.Provider>
