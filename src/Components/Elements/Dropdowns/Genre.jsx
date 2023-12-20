@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import AllCard from "../../Container/AllCard";
 import { GenreFilter } from "../../../Context/GenreFilterContext";
 
 function Genre() {
-  const { genres, searchTerm, searchResults, handleGenreChange, cancel } =
+  const { genres, searchTerm, handleGenreChange, cancel } =
     useContext(GenreFilter);
 
   if (!genres) {

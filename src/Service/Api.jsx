@@ -66,21 +66,6 @@ const getSearchByGenre = async (genre_id) => {
   return response.data;
 };
 
-// const getGenreNames = async (genreIds) => {
-//   try {
-//     const response = await axiosCreate.get("/genre/movie/list");
-//     const genres = response.data.genres;
-
-//     return genreIds
-//       .map((genreId) => genres.find((genre) => genre.id === genreId)?.name)
-//       .filter(Boolean)
-//       .join(", ");
-//   } catch (error) {
-//     console.error("Error fetching genres:", error);
-//     return "";
-//   }
-// };
-
 export default {
   getNowPlaying,
   getGenres,
@@ -94,5 +79,4 @@ export default {
   getTopRatedTV,
   getDetailMovie,
   getSearchByGenre,
-  // getGenreNames,
 };

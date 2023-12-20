@@ -1,4 +1,4 @@
-import Footer from "../Components/Elements/Footer/Footer";
+// import Footer from "../Components/Elements/Footer/Footer";
 import Now from "../Components/Elements/Fragments/Now";
 import Popular from "../Components/Elements/Fragments/Popular";
 import TopRated from "../Components/Elements/Fragments/TopRated";
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <div className="font-custom">
+      <div className="font-custom flex flex-col min-h-screen">
         {searchQuery && searchResults.length > 0 ? (
           <AllCard label={searchResults} />
         ) : searchQuery && searchResults.length === 0 ? (
@@ -38,7 +38,7 @@ function Home() {
           </>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
