@@ -3,10 +3,11 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Components/Elements/Header/Header";
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import Loader from "./Pages/Loader";
 import SearchFilterProvider from "./Context/FilterContext";
 import GenreFilterProvider from "./Context/GenreFilterContext";
+import DetailPage from "./Components/Container/DetailPage";
 // import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/coming" element={<Coming />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/detail/:id" element={<DetailPage />} />
                 <Route path="*" element={<ErrorPage />} />
               </Routes>
             </Suspense>

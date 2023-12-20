@@ -51,7 +51,12 @@ const getTopRatedTV = axiosCreate.get(
 );
 
 //detail movie
-// const getDetailMovie = axiosCreate.get(`/movie/${movie_id}?api_key=` + api_key);
+export const getDetailMovie = async (movie_id) => {
+  const response = await axiosCreate.get(
+    `/movie/${movie_id}?api_key=${api_key}`
+  );
+  return response.data;
+};
 
 // search by genre
 const getSearchByGenre = async (genre_id) => {
@@ -87,7 +92,7 @@ export default {
   getTrendingShow,
   getPopularTV,
   getTopRatedTV,
-  // getDetailMovie,
+  getDetailMovie,
   getSearchByGenre,
   // getGenreNames,
 };

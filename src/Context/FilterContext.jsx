@@ -13,6 +13,11 @@ const SearchFilterProvider = ({ children }) => {
     setSearchQueryActive(true);
   };
 
+  const handleClearSearch = () => {
+    setSearchQuery(""); // Mengosongkan query pencarian
+    setSearchQueryActive(false);
+  };
+
   useEffect(() => {
     // Fungsi yang akan dipanggil saat komponen dimuat atau query pencarian berubah
     if (searchQuery.length > 4) {
@@ -34,7 +39,6 @@ const SearchFilterProvider = ({ children }) => {
       setSearchResults([]);
     }
   }, [searchQuery]); // Bergantung pada perubahan searchQuery
-  console.log(searchResults);
 
   return (
     <SearchFilterContext.Provider
@@ -44,6 +48,7 @@ const SearchFilterProvider = ({ children }) => {
         searchResults,
         searchQueryActive,
         setSearchQueryActive,
+        handleClearSearch,
       }}
     >
       {children}
