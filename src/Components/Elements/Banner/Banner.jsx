@@ -14,8 +14,8 @@ export function Banner({ label }) {
       interval={3000}
       className="cursor-pointer"
     >
-      {label.map((item, index) => (
-        <Link key={index} to={`/detail/${item.id}`}>
+      {label.map((item) => (
+        <Link key={item.id} to={`/detail/${item.id}`}>
           <div className="bg-gradient-to-r from-black from-[30%] to-transparent max-h-[80vh] group flex flex-row-reverse justify-start items-start rounded-3xl border">
             <img
               src={`https://image.tmdb.org/t/p/original${item.poster_path}`}

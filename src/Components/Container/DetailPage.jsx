@@ -29,12 +29,12 @@ const DetailPage = () => {
 
   console.log(movie);
   return (
-    <div className="container mx-auto my-8">
+    <main className="min-h-screen max-w-5xl mx-auto my-8  ">
       {isLoading && <MovieDetailsSkeleton />}
       {movie && (
-        <>
-          <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article className="min-h-screen mx-auto rounded-lg shadow-md shadow-gray-600 overflow-hidden">
+          <h1 className="text-3xl font-bold mb-4 text-center">{movie.title}</h1>
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-7">
             <img
               src={
                 movie.poster_path
@@ -42,7 +42,7 @@ const DetailPage = () => {
                   : "https://i.pinimg.com/564x/c6/3a/e4/c63ae4baec83b04b3f0d3e54b72b286c.jpg"
               }
               alt={movie.title}
-              className="rounded-md shadow-md"
+              className="rounded-md shadow-2xl min-h-full "
             />
             <div>
               <p className="mb-2">
@@ -50,30 +50,37 @@ const DetailPage = () => {
                 {movie.genres.map((genre) => genre.name).join(", ")}
               </p>
               <p className="mb-2">
-                <strong>Popularity:</strong> {movie.popularity}
+                <strong>Popularity:</strong>{" "}
+                {movie.popularity ? movie.popularity : "-"}
               </p>
               <p className="mb-2">
                 <strong>Revenue:</strong> ${" "}
-                {movie.revenue.toLocaleString("id-ID")}
+                {movie.revenue ? movie.revenue.toLocaleString("id-ID") : "-"}
               </p>
               <p className="mb-2">
-                <strong>Runtime:</strong> {movie.runtime} minutes
+                <strong>Runtime:</strong> {movie.runtime ? movie.runtime : "-"}{" "}
+                minutes
               </p>
 
               <p className="mb-2">
-                <strong>Vote Average:</strong> {movie.vote_average}
+                <strong>Vote Average:</strong>{" "}
+                {movie.vote_average ? movie.vote_average : "-"}
               </p>
               <p className="mb-2">
-                <strong>Vote Count:</strong> {movie.vote_count}
+                <strong>Vote Count:</strong>{" "}
+                {movie.vote_count ? movie.vote_count : "-"}
               </p>
               <p className="mb-2">
-                <strong>Release Date:</strong> {movie.release_date}
+                <strong>Release Date:</strong>{" "}
+                {movie.release_date ? movie.release_date : "-"}
               </p>
               <p className="mb-2">
-                <strong>Original Language:</strong> {movie.original_language}
+                <strong>Original Language:</strong>{" "}
+                {movie.original_language ? movie.original_language : "-"}
               </p>
               <p className="mb-2">
-                <strong>Original Title:</strong> {movie.original_title}
+                <strong>Original Title:</strong>{" "}
+                {movie.original_title ? movie.original_title : "-"}
               </p>
 
               <p className="mb-2">
@@ -95,14 +102,14 @@ const DetailPage = () => {
                   .join(", ")}
               </p>
               <p className="mb-2">
-                <strong>Tagline:</strong> {movie.tagline}
+                <strong>Tagline:</strong> {movie.tagline ? movie.tagline : "-"}
               </p>
             </div>
           </div>
-          <p className="mt-4">{movie.overview}</p>
-        </>
+          <p className="mt-4 mx-7">{movie.overview ? movie.overview : "-"}</p>
+        </article>
       )}
-    </div>
+    </main>
   );
 };
 

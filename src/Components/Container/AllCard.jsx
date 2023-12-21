@@ -10,7 +10,7 @@ const AllCard = ({ label, Loading, count }) => {
       <CardSkeleton length={count} />
     ) : (
       // Render the actual cards when data is loaded
-      <div className="h-[250px] w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7">
+      <div className="min-h-screen w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7">
         {label.map((item, index) => (
           <div
             key={index}

@@ -45,7 +45,6 @@ function Home() {
           </main>
         )}
       </div>
-      <Footer />
     </>
   );
 }
