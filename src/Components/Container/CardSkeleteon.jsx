@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 const CardSkeleton = ({ length = 0 }) => {
   return (
     <div className="h-[250px] w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7">
@@ -22,6 +23,10 @@ const CardSkeleton = ({ length = 0 }) => {
       {length === 0 && <div className="text-center">No data available</div>}
     </div>
   );
+};
+
+CardSkeleton.propTypes = {
+  length: PropTypes.number,
 };
 
 export default CardSkeleton;

@@ -7,7 +7,7 @@ import { Suspense, lazy } from "react";
 import Loader from "./Pages/Loader";
 import SearchFilterProvider from "./Context/FilterContext";
 import GenreFilterProvider from "./Context/GenreFilterContext";
-import DetailPage from "./Components/Container/DetailPage";
+import DetailPage from "./Pages/DetailPage";
 import Footer from "./Components/Elements/Footer/Footer";
 // import ErrorPage from "./Pages/ErrorPage";
 

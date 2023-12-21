@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getDetailMovie } from "../../Service/Api";
+import { getDetailMovie } from "../Service/Api";
 import { useParams } from "react-router-dom";
-import MovieDetailsSkeleton from "./MovieDetailSkeleteon";
+import MovieDetailsSkeleton from "../Components/Container/MovieDetailSkeleteon";
 
 const DetailPage = () => {
   const [movie, setMovie] = useState(null);
