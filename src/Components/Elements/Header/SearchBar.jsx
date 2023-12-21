@@ -24,7 +24,7 @@ export function SearchBar() {
           value={searchQuery}
           className="bg-transparent px-2 w-full outline-none text-white"
         />
-        {searchQueryActive ? (
+        {searchQueryActive && searchQuery ? (
           <HiXMark
             className="text-xl mr-2 mt-1 text-gray-500 cursor-pointer"
             onClick={handleClearSearch}

@@ -10,23 +10,31 @@ import SearchByGenre from "../Components/Elements/Fragments/SearchByGenre";
 import { GenreFilter } from "../Context/GenreFilterContext";
 
 function Home() {
-  const { searchQuery, searchResults } = useContext(SearchFilter);
-  const { searchTerm, searchResultsGenres } = useContext(GenreFilter);
+  const { searchQuery, searchResults, isFetchingQuery } =
+    useContext(SearchFilter);
+  const { searchTerm, searchResultsGenres, isFetching } =
+    useContext(GenreFilter);
   console.log(searchResults);
 
   return (
     <>
       <div className="font-custom flex flex-col min-h-screen">
         {searchQuery && searchResults.length > 0 ? (
-          <AllCard label={searchResults} />
-        ) : searchQuery && searchResults.length === 0 ? (
-          <p className="text-gray-400">No results found</p>
+          <AllCard
+            label={searchResults}
+            Loading={isFetchingQuery}
+            count={searchResults.length}
+          />
         ) : (
           <>
             <Now />
             <SearchByGenre />
             {searchTerm && searchResultsGenres.length > 0 ? (
-              <AllCard label={searchResultsGenres} />
+              <AllCard
+                label={searchResultsGenres}
+                Loading={isFetching}
+                count={searchResultsGenres.length}
+              />
             ) : (
               <>
                 {" "}

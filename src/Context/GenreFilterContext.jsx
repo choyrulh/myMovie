@@ -8,7 +8,7 @@ const GenreFilterProvider = ({ children }) => {
   const [searchResultsGenres, setSearchResultsGenres] = useState([]); // Initialize empty search results array
   const [cancel, setCancel] = useState(false); // Keeps track of cancel button state
   const [searchGenresActive, setSearchGenresActive] = useState(false);
-
+  const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
     // Check for local storage data
     const localStorageGenres = localStorage.getItem("genres");
@@ -30,6 +30,7 @@ const GenreFilterProvider = ({ children }) => {
     const genresResponse = await Api.getGenres();
     const genres = genresResponse.genres;
     setGenres(genres);
+
     localStorage.setItem("genres", JSON.stringify(genres));
   };
 
@@ -53,11 +54,21 @@ const GenreFilterProvider = ({ children }) => {
   };
 
   const getSearchByGenre = async (genre_id) => {
-    const searchByGenreResponse = await Api.getSearchByGenre(genre_id);
-    const searchResultsGenres = searchByGenreResponse.results;
-    setSearchResultsGenres(searchResultsGenres);
-    console.log(searchResultsGenres);
+    setIsFetching(true); // Indicate data fetching is starting
+    try {
+      const searchByGenreResponse = await Api.getSearchByGenre(genre_id);
+      const searchResultsGenres = searchByGenreResponse.results;
+      setSearchResultsGenres(searchResultsGenres);
+      console.log(searchResultsGenres);
+    } catch (error) {
+      // Handle errors here
+      console.error("Error fetching search results:", error);
+    } finally {
+      // Indicate data fetching is complete
+      setIsFetching(false);
+    }
   };
+
   return (
     <GenreFilterContext.Provider
       value={{
@@ -68,6 +79,7 @@ const GenreFilterProvider = ({ children }) => {
         handleGenreChange,
         searchGenresActive,
         setSearchGenresActive,
+        isFetching,
       }}
     >
       {children}

@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
+import CardSkeleton from "./CardSkeleteon";
 
-const AllCard = ({ label }) => {
+const AllCard = ({ label, Loading, count }) => {
   return (
-    // wrapped component here
-    <>
+    // Use a conditional expression to render either the skeleton or the actual cards
+    Loading ? (
+      // Render the skeleton when data is loading
+      <CardSkeleton length={count} />
+    ) : (
+      // Render the actual cards when data is loaded
       <div className="h-[250px] w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7">
         {label.map((item, index) => (
           <div
             key={index}
-            className=" h-[250px] w-40 relative hover:scale-105 hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer "
+            className="h-[250px] w-40 relative hover:scale-105 hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer"
           >
             <Link to={`/detail/${item.id}`}>
               <img
@@ -28,7 +33,7 @@ const AllCard = ({ label }) => {
           </div>
         ))}
       </div>
-    </>
+    )
   );
 };
 

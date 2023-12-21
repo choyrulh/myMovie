@@ -8,7 +8,11 @@ const SearchFilterProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
   const [searchResults, setSearchResults] = useState([]); // State untuk hasil pencarian
   const [searchQueryActive, setSearchQueryActive] = useState(false);
+  const [isFetchingQuery, setIsFetchingQuery] = useState(false);
   const handleSearch = (event) => {
+    // Fungsi yang akan dipanggil saat input berubah
+    event.preventDefault(); //
+    setIsFetchingQuery(true);
     setSearchQuery(event.target.value); // Mengupdate query pencarian saat input berubah
     setSearchQueryActive(true);
   };
@@ -25,6 +29,7 @@ const SearchFilterProvider = ({ children }) => {
       getSearch(searchQuery) // Panggil fungsi getSearch dengan query
         .then((data) => {
           setSearchResults(data.results);
+          setIsFetchingQuery(false);
           console.log(data.results); // Mengupdate hasil pencarian dengan data dari API
         })
         .catch((error) => {
@@ -49,6 +54,7 @@ const SearchFilterProvider = ({ children }) => {
         searchQueryActive,
         setSearchQueryActive,
         handleClearSearch,
+        isFetchingQuery,
       }}
     >
       {children}

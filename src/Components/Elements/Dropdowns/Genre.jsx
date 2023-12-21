@@ -5,10 +5,6 @@ function Genre() {
   const { genres, searchTerm, handleGenreChange, cancel } =
     useContext(GenreFilter);
 
-  if (!genres) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="text-white">
       <select
