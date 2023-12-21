@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CardSkeleton from "./CardSkeleteon";
+import { PropTypes } from "prop-types";
 
 const AllCard = ({ label, Loading, count }) => {
   return (
@@ -35,6 +36,12 @@ const AllCard = ({ label, Loading, count }) => {
       </div>
     )
   );
+};
+
+AllCard.propTypes = {
+  label: PropTypes.array.isRequired,
+  Loading: PropTypes.bool.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default AllCard;

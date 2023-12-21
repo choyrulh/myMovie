@@ -1,6 +1,7 @@
 // make context for filter
 import { createContext, useEffect, useState } from "react";
 import { getSearch } from "../Service/Api";
+import { PropTypes } from "prop-types";
 
 const SearchFilterContext = createContext();
 
@@ -61,6 +62,8 @@ const SearchFilterProvider = ({ children }) => {
     </SearchFilterContext.Provider>
   );
 };
+
+SearchFilterProvider.propTypes = { children: PropTypes.node.isRequired };
 
 export const SearchFilter = SearchFilterContext;
 
