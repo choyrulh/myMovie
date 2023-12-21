@@ -8,8 +8,6 @@ import Loader from "./Pages/Loader";
 import SearchFilterProvider from "./Context/FilterContext";
 import GenreFilterProvider from "./Context/GenreFilterContext";
 import DetailPage from "./Components/Container/DetailPage";
-import Footer from "./Components/Elements/Footer/Footer";
-// import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   const Home = lazy(() => import("./Pages/Home"));
@@ -35,7 +33,6 @@ function App() {
                 <Route path="/detail/:id" element={<DetailPage />} />
                 <Route path="*" element={<ErrorPage />} />
               </Routes>
-              <Footer />
             </Suspense>
           </GenreFilterProvider>
         </SearchFilterProvider>

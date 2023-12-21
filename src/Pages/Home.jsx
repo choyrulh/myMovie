@@ -8,13 +8,13 @@ import { SearchFilter } from "../Context/FilterContext";
 import AllCard from "../Components/Container/AllCard";
 import SearchByGenre from "../Components/Elements/Fragments/SearchByGenre";
 import { GenreFilter } from "../Context/GenreFilterContext";
+import Footer from "../Components/Elements/Footer/Footer";
 
 function Home() {
   const { searchQuery, searchResults, isFetchingQuery } =
     useContext(SearchFilter);
   const { searchTerm, searchResultsGenres, isFetching } =
     useContext(GenreFilter);
-  console.log(searchResults);
 
   return (
     <>
@@ -26,7 +26,7 @@ function Home() {
             count={searchResults.length}
           />
         ) : (
-          <>
+          <main className="flex-grow">
             <Now />
             <SearchByGenre />
             {searchTerm && searchResultsGenres.length > 0 ? (
@@ -43,10 +43,10 @@ function Home() {
                 <TopRated />
               </>
             )}
-          </>
+          </main>
         )}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

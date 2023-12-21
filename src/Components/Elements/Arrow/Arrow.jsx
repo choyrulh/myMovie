@@ -1,4 +1,5 @@
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { PropTypes } from "prop-types";
 
 const Arrow = ({ previous, next }) => {
   return (
@@ -15,6 +16,11 @@ const Arrow = ({ previous, next }) => {
       </div>
     </>
   );
+};
+
+Arrow.propTypes = {
+  previous: PropTypes.func,
+  next: PropTypes.func,
 };
 
 export default Arrow;

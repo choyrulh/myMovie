@@ -2,19 +2,24 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getDetailMovie } from "../../Service/Api";
 import { useParams } from "react-router-dom";
+import MovieDetailsSkeleton from "./MovieDetailSkeleteon";
 
 const DetailPage = () => {
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
 
   useEffect(() => {
     // Async function to fetch movie details from the API
     const fetchMovieDetail = async () => {
       try {
+        setIsLoading(true);
         const data = await getDetailMovie(params.id);
         setMovie(data);
       } catch (error) {
         console.error("Error fetching movie detail:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -25,6 +30,7 @@ const DetailPage = () => {
   console.log(movie);
   return (
     <div className="container mx-auto my-8">
+      {isLoading && <MovieDetailsSkeleton />}
       {movie && (
         <>
           <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>

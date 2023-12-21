@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 export function Banner({ label }) {
   return (
@@ -61,5 +62,7 @@ export function Banner({ label }) {
     </Carousel>
   );
 }
+
+Banner.propTypes = { label: PropTypes.array };
 
 export default Banner;
