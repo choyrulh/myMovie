@@ -12,18 +12,12 @@ export function Banner({ label }) {
       infiniteLoop={true}
       showStatus={false}
       interval={3000}
-      onClickItem={() => {
-        console.log("clicked");
-      }}
       className="cursor-pointer"
     >
       {label.map((item, index) => (
         <>
-          <Link to={`/detail/${item.id}`}>
-            <div
-              key={index}
-              className="bg-gradient-to-r from-black from-[30%] to-transparent max-h-[80vh] group flex flex-row-reverse justify-start items-start rounded-3xl border"
-            >
+          <Link key={index} to={`/detail/${item.id}`}>
+            <div className="bg-gradient-to-r from-black from-[30%] to-transparent max-h-[80vh] group flex flex-row-reverse justify-start items-start rounded-3xl border">
               <img
                 src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 className="h-[80vh] w-[80%] rounded-3xl object-center mix-blend-overlay"
@@ -34,7 +28,7 @@ export function Banner({ label }) {
                     {item.title ? item.title : item.name}
                   </h2>
                   <h3 className="text-base mt-2">
-                    {`Tanggal rilis : ${
+                    {`Release Date : ${
                       item.release_date
                         ? item.release_date
                         : item.first_air_date
@@ -42,14 +36,14 @@ export function Banner({ label }) {
                   </h3>
                   <h4 className="mt-1">
                     {item.popularity.toLocaleString("id-ID", {
-                      styles: "currecncy",
+                      styles: "currency",
                       currency: "IDR",
                     })}
                     🔥
                   </h4>
                   <h5 className="text-sm mt-1">
                     {" "}
-                    Sinopsis:<p>
+                    Synopsis:<p>
                       {item.overview.slice(0, 200) + " " + "..."}
                     </p>{" "}
                   </h5>
@@ -63,6 +57,8 @@ export function Banner({ label }) {
   );
 }
 
-Banner.propTypes = { label: PropTypes.array };
+Banner.propTypes = {
+  label: PropTypes.array.isRequired,
+};
 
 export default Banner;

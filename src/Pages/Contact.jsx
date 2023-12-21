@@ -3,8 +3,9 @@ const Contact = () => {
     <div className="container mx-auto my-8 text-center">
       <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
       <p className="mb-8 text-white">
-        Have questions, suggestions, or just want to talk about movies? We'd
-        love to hear from you! Reach out to us using the information below:
+        Have questions, suggestions, or just want to talk about movies? We are
+        here to help and love to hear from you! Reach out to us using the
+        information below:
       </p>
       <div className="flex flex-col items-center">
         <p className="mb-4 text-lg font-semibold">Email:</p>

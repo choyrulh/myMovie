@@ -9,7 +9,7 @@ const Card = ({ label }) => {
           index < 8 && (
             <div
               key={index}
-              className="h-[250px] w-40 relative hover:scale-105 hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer"
+              className="h-[250px] w-40 relative hover:scale-105  hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer"
             >
               <Link to={`/detail/${item.id}`}>
                 <img

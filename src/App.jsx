@@ -8,6 +8,7 @@ import Loader from "./Pages/Loader";
 import SearchFilterProvider from "./Context/FilterContext";
 import GenreFilterProvider from "./Context/GenreFilterContext";
 import DetailPage from "./Components/Container/DetailPage";
+// import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   const Home = lazy(() => import("./Pages/Home"));

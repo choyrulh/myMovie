@@ -37,7 +37,6 @@ function Home() {
               />
             ) : (
               <>
-                {" "}
                 <Trending />
                 <Popular />
                 <TopRated />
