@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 export function Banner({ label }) {
+  const handleWindow = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <Carousel
       showThumbs={false}
@@ -15,7 +18,7 @@ export function Banner({ label }) {
       className="cursor-pointer"
     >
       {label.map((item) => (
-        <Link key={item.id} to={`/detail/${item.id}`}>
+        <Link key={item.id} to={`/detail/${item.id}`} onClick={handleWindow}>
           <div className="bg-gradient-to-r from-black from-[30%] to-transparent max-h-[80vh] group flex flex-row-reverse justify-start items-start rounded-3xl border">
             <img
               src={`https://image.tmdb.org/t/p/original${item.poster_path}`}

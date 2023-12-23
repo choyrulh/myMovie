@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Card = ({ label }) => {
+  const handleClickWindow = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="h-[250px] w-[100%} flex flex-row gap-2 justify-evenly">
       {label.map(
@@ -11,7 +15,7 @@ const Card = ({ label }) => {
               key={item.id}
               className="h-[250px] w-40 relative hover:scale-105  hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer"
             >
-              <Link to={`/detail/${item.id}`}>
+              <Link to={`/detail/${item.id}`} onClick={handleClickWindow}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   className="object-fill w-[100%] h-[100%] rounded-lg"

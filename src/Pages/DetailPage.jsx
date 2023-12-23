@@ -106,7 +106,9 @@ const DetailPage = () => {
               </p>
             </div>
           </div>
-          <p className="mt-4 mx-7">{movie.overview ? movie.overview : "-"}</p>
+          <p className="mt-4 mx-7">
+            <strong>Synopsis</strong> : {movie.overview ? movie.overview : "-"}
+          </p>
         </article>
       )}
     </main>
