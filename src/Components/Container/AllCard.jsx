@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import CardSkeleton from "./CardSkeleteon";
 import { PropTypes } from "prop-types";
+import { motion } from "framer-motion";
 
 const AllCard = ({ label, Loading, count }) => {
   const handleClickWindow = () => {
@@ -13,14 +14,29 @@ const AllCard = ({ label, Loading, count }) => {
       <CardSkeleton length={count} />
     ) : (
       // Render the actual cards when data is loaded
-      <div className="min-h-screen w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7">
+      <motion.ul
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-screen w-[100%} flex flex-wrap gap-3 items-start mt-5 mx-7"
+      >
         {label.map((item, index) => (
-          <div
+          <motion.li
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 * index }}
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 1 },
+            }}
             key={index}
-            className="h-[250px] w-40 relative hover:scale-105 hover:z-10 hover:delay-150 transition all ease-in-out duration-200 cursor-pointer"
+            className="h-[250px] w-40 relative cursor-pointer"
           >
             <Link to={`/detail/${item.id}`} onClick={handleClickWindow}>
-              <img
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
                 src={
                   item.poster_path
                     ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
@@ -28,15 +44,21 @@ const AllCard = ({ label, Loading, count }) => {
                 }
                 className="object-fill w-[100%] h-[100%] rounded-lg"
               />
-              <div className="w-full h-[50%] absolute bottom-0 rounded-b-lg bg-gradient-to-t from-black to-transparent flex justify-center items-end">
+              <motion.span
+                whileHover={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-[50%] absolute bottom-0 rounded-b-lg bg-gradient-to-t from-black to-transparent flex justify-center items-end"
+              >
                 <h2 className="text-center mb-2">
                   {item.title ? item.title : item.name}
                 </h2>
-              </div>
+              </motion.span>
             </Link>
-          </div>
+          </motion.li>
         ))}
-      </div>
+      </motion.ul>
     )
   );
 };

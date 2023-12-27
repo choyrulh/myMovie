@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getDetailMovie } from "../Service/Api";
 import { useParams } from "react-router-dom";
 import MovieDetailsSkeleton from "../Components/Container/MovieDetailSkeleteon";
+import { motion } from "framer-motion";
 
 const DetailPage = () => {
   const [movie, setMovie] = useState(null);
@@ -44,7 +45,7 @@ const DetailPage = () => {
               alt={movie.title}
               className="rounded-md shadow-2xl min-h-full "
             />
-            <div>
+            <span>
               <p className="mb-2">
                 <strong>Genres:</strong>{" "}
                 {movie.genres.map((genre) => genre.name).join(", ")}
@@ -104,7 +105,7 @@ const DetailPage = () => {
               <p className="mb-2">
                 <strong>Tagline:</strong> {movie.tagline ? movie.tagline : "-"}
               </p>
-            </div>
+            </span>
           </div>
           <p className="mt-4 mx-7">
             <strong>Synopsis</strong> : {movie.overview ? movie.overview : "-"}
