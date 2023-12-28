@@ -33,7 +33,12 @@ const DetailPage = () => {
     <main className="min-h-screen max-w-5xl mx-auto my-8  ">
       {isLoading && <MovieDetailsSkeleton />}
       {movie && (
-        <article className="min-h-screen mx-auto rounded-lg shadow-md shadow-gray-600 overflow-hidden">
+        <motion.article
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="min-h-screen mx-auto rounded-lg shadow-md shadow-gray-600 overflow-hidden"
+        >
           <h1 className="text-3xl font-bold mb-4 text-center">{movie.title}</h1>
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-7">
             <img
@@ -110,7 +115,7 @@ const DetailPage = () => {
           <p className="mt-4 mx-7">
             <strong>Synopsis</strong> : {movie.overview ? movie.overview : "-"}
           </p>
-        </article>
+        </motion.article>
       )}
     </main>
   );
