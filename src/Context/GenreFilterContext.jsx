@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import Api from "../Service/Api";
+import { PropTypes } from "prop-types";
 const GenreFilterContext = createContext();
 
 const GenreFilterProvider = ({ children }) => {
@@ -85,6 +86,10 @@ const GenreFilterProvider = ({ children }) => {
       {children}
     </GenreFilterContext.Provider>
   );
+};
+
+GenreFilterProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const GenreFilter = GenreFilterContext;

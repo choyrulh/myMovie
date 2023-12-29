@@ -8,7 +8,6 @@ import { SearchFilter } from "../Context/FilterContext";
 import AllCard from "../Components/Container/AllCard";
 import SearchByGenre from "../Components/Elements/Fragments/SearchByGenre";
 import { GenreFilter } from "../Context/GenreFilterContext";
-import Footer from "../Components/Elements/Footer/Footer";
 
 function Home() {
   const { searchQuery, searchResults, isFetchingQuery } =
