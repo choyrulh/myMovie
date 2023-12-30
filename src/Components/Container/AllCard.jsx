@@ -28,6 +28,7 @@ const AllCard = ({ label, Loading, count }) => {
             whileHover={{
               scale: 1.2,
               transition: { duration: 1 },
+              zIndex: 10,
             }}
             key={index}
             className="h-[250px] w-40 relative cursor-pointer"
