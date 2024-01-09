@@ -8,7 +8,7 @@ const Card = ({ label }) => {
   };
   return (
     <motion.ul
-      className="grid lg:grid-cols-8 md:grid-cols-6 sm:grid-cols-3 grid-cols-2 gap-2"
+      className="grid grid-cols-8 gap-2"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
