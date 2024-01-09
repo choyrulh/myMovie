@@ -43,7 +43,7 @@ function Trending() {
 
   return (
     <>
-      <div className="max-h-[300px]  mt-3 mx-7 flex flex-col gap-2 ">
+      <div className="max-h-[300px] mt-3 mx-7 flex flex-col gap-2 ">
         <div className="flex flex-row justify-between">
           <h1 className="text-3xl font-semibold ">Trending</h1>
           <Arrow previous={handlePreviousClick} next={handleNextClick} />
